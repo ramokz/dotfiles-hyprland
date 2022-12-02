@@ -1,0 +1,148 @@
+
+/*========*/
+/* GLOBAL */
+/*========*/
+* {
+	border: none;
+	font-family: mononoki Nerd Font;
+}
+
+@define-color ColorCore #DE1636;
+@define-color ColorWhite #F2F2F2;
+
+window#waybar {
+/*    background: transparent; */
+	background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%); 
+    color: white;
+}
+
+
+/*============*/
+/* WORKSPACES */
+/*============*/
+#workspaces {
+	margin-top: 10px;
+	margin-left: 20px;
+	font-size: 16px;
+}
+
+#workspaces button {
+    color: #fff;
+    padding-right: 18px;
+    padding-bottom: 5px;
+    margin-left: 5px;
+}
+
+#workspaces button.active {
+	color: #FFF;
+	border: 1px solid @ColorCore;
+	border-radius: 5px;
+}
+
+#workspaces button:hover {
+	border-color: transparent;
+	background: @ColorCore;
+
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+
+
+/*========*/
+/* WINDOW */
+/*========*/
+#window {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+
+/*==============*/
+/* STATUS ITEMS */
+/*==============*/
+#custom-date,
+#custom-power,
+#clock,
+#battery,
+#cpu,
+#memory,
+#tray,
+#pulseaudio,
+#network,
+#temperature,
+#idle_inhibitor,
+#language {
+/*	background-color: #0F1923; */
+	padding: 3px 10px;
+	border-radius: 5px;
+	margin: 6px;
+	font-size: 16px;
+    color: @ColorWhite;
+}
+
+#custom-date:hover,
+#custom-power:hover,
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#tray:hover,
+#pulseaudio:hover,
+#network:hover,
+#temperature:hover,
+#idle_inhibitor:hover,
+#language:hover {
+    background: @ColorCore;
+}
+
+#custom-power {
+	padding: 5px 10px;
+}
+
+#clock {
+	margin-right: 10px;
+}
+
+#battery {
+	/* color: #9ece6a; */
+}
+
+#cpu {
+	/* color: #ff8000; */
+}
+
+#memory {
+	/* color: yellow; */
+}
+
+#battery.charging {
+	color: #9ece6a;
+}
+
+#battery.warning:not(.charging) {
+	background-color: #f7768e;
+	color: #24283b;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#network {
+	color: #f7768e;
+	border-radius: 5px 0px 0px 5px;
+}
+
+#pulseaudio {
+	/* color: #e0af68; */
+}
+
+#pulseaudio.muted {
+	background-color: @ColorCore;
+	color: @ColorWhite;
+}
+
+#idle_inhibitor {
+    padding: 0 20px;
+}
+
+#idle_inhibitor.activated {
+    background: #F1692F;
+}
