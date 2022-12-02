@@ -34,6 +34,6 @@ cp /etc/gtk-3.0/settings.ini $dir/etc/gtk-3.0
 ###############
 # Git Add Files
 ##############
-# cd $dir
-# git add .
-# git commit -m "bot: Updated dotfiles"
+cd $dir
+git add .
+git commit -m "bot: Updated dotfiles"
