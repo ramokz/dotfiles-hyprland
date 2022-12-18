@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+killall rofi || \
+rofi \
+	-modi emoji \
+    -show emoji \
+    -theme "$HOME"/.config/rofi/config/emoji.rasi
