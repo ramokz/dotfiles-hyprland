@@ -30,6 +30,9 @@ cp ~/.config/MangoHud/MangoHud.conf $dir/config/MangoHud
 # Copy GTK3 configs
 cp /etc/gtk-3.0/settings.ini $dir/etc/gtk-3.0
 
+# Copy rofi configs
+cp ~/.config/rofi $dir/config/rofi/
+
 
 ###############
 # Git Add Files
