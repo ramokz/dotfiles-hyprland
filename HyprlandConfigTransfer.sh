@@ -31,7 +31,7 @@ cp ~/.config/MangoHud/MangoHud.conf $dir/config/MangoHud
 cp /etc/gtk-3.0/settings.ini $dir/etc/gtk-3.0
 
 # Copy rofi configs
-cp ~/.config/rofi $dir/config/rofi/
+cp ~/.config/rofi/* $dir/config/rofi/
 
 
 ###############
