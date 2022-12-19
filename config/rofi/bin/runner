@@ -5,3 +5,7 @@ rofi \
 	-scroll-method 0 \
 	-terminal kitty \
 	-theme "$HOME"/.config/rofi/config/runner.rasi
+
+##################################################################################
+# Based on Deathemonic - https://github.com/catppuccin/rofi/tree/main/deathemonic
+##################################################################################

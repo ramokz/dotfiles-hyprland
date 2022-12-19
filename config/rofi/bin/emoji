@@ -5,3 +5,8 @@ rofi \
     -scroll-method 1 \
     -show emoji \
     -theme "$HOME"/.config/rofi/config/emoji.rasi
+
+
+# #################################################################################
+# Based on Deathemonic - https://github.com/catppuccin/rofi/tree/main/deathemonic
+# #################################################################################

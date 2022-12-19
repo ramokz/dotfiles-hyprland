@@ -2,10 +2,14 @@
 killall rofi || \
 rofi \
 	-show drun \
-	-modi run,drun,ssh \
+	-modi drun,ssh \
 	-scroll-method 1 \
     -drun-match-fields all \
 	-drun-display-format "{name}" \
 	-no-drun-show-actions \
 	-terminal kitty \
 	-theme "$HOME"/.config/rofi/config/launcher.rasi
+
+##################################################################################
+# Based on Deathemonic - https://github.com/catppuccin/rofi/tree/main/deathemonic
+##################################################################################
