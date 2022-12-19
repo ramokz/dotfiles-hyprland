@@ -2,5 +2,6 @@
 killall rofi || \
 rofi \
 	-modi emoji \
+    -scroll-method 1 \
     -show emoji \
     -theme "$HOME"/.config/rofi/config/emoji.rasi

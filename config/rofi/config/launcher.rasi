@@ -34,7 +34,7 @@ textbox-prompt-colon {
     expand: 			            false;
     str: 			                "";
     border-radius:                  100%;
-    background-color:               @SEL;
+    background-color:               transparent;
     text-color:                     @FG;
     padding:                        8px 12px 8px 12px;
     font:			                "Iosevka Nerd Font 10";

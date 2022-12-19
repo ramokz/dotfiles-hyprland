@@ -39,4 +39,4 @@ cp -r ~/.config/rofi/* $dir/config/rofi/
 ##############
 cd $dir
 git add .
-git commit -m "bot: Updated dotfiles"
+git commit -m "Updated dotfiles"
