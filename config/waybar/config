@@ -4,27 +4,27 @@
         "wlr/workspaces",
         "tray",
         "idle_inhibitor",
-        "clock",
-        "pulseaudio",
-        "temperature",
         "battery",
         "cpu",
         "memory",
-        "hyprland/language"
+        "pulseaudio",
+        "hyprland/language",
+        "clock",
+        "custom/time",
     ],
     // Modules configuration
 	"wlr/workspaces": {
 		"disable-scroll": true,
         "on-click": "activate",
 		"all-outputs": true,
-		"format": "{icon}",
+        "format": "{icon}",
 	 	"persistent_workspaces": {
 	 		"1": [],
 	 		"2": [],
 	 		"3": [],
 	 		"4": [],
 			"5": [],
-	 		"6": []
+            "6": [],
 		},
     	"format-icons": {
             "1":    "一",
@@ -33,25 +33,24 @@
             "4":    "四",
             "5":    "五",
             "6":    "六",
-            "7":     "七",
+            "7":    "七",
             "8":    "八",
             "9":    "九",
-            "10":   "十"
+            "10":   "十",
          }
      },
-	"custom/date": {
-    		"format": "󰸗 {}",
-		"interval": 3600,
-		// "exec": "/home/loki/bin/waybar-date.sh"
-		"exec": "/home/loki/bin/waybar-date.sh"
-	},
-	"custom/power": {
-		"format": "󰐥",
-		"on-click": "/home/loki/bin/waybar-power.sh"
-	},
-	"clock": {
-		"format": "{:%H:%M | %a %d. %B}",
-        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "clock": {
+		"format": "{:%a %d. %B}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
+        "format-calendar": "<span color='#F2F2F2'>{}</span>",
+        "today-format": "<span background='#DE1636' color='#F2F2F2'><b>{}</b></span>",
+        "format-calendar-weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "format-calendar-weeks": "<span color='#99ffdd'><b>W{:%U}</b></span>",
+        "calendar-weeks-pos": "right",
+    },
+    "custom/time": {
+        "restart-interval": 20,
+        "exec": "sh ~/.config/waybar/scripts/get-time.sh",
 	},
 	"battery": {
 		"states": {
@@ -65,16 +64,13 @@
         "format-full": "{icon} {capacity}%",
         "format-icons": ["", "", ""]
 	},
-
 	"cpu": {
-        "format": " {usage}%",
+        "format": " {usage}%",
         "tooltip": false
     },
-
 	"memory": {
-		"format": " {}%"
+        "format": " {}%"
 	},
-
 	"temperature": {
 	        // "thermal-zone": 2,
 		"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
@@ -82,7 +78,6 @@
 	        // "format-critical": "{temperatureC}°C {icon}",
         	"format": " {temperatureC}°C",
 	},
-
 	"network": {
         	"format-wifi": "  {essid}",
         	"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
@@ -90,7 +85,6 @@
         	"format-disconnected": "󰤮 Disconnected",
         	"format-alt": "{ifname}: {ipaddr}/{cidr}"
 	},
-
 	"pulseaudio": {
 		"format": "{icon} {volume}%",
 		"format-bluetooth": "{volume}% {icon} {format_source}",
@@ -109,9 +103,8 @@
 		"on-click": "pavucontrol -t 3",
 		"on-click-right": "pkill pavucontrol"
     },
-
 	"tray": {
-		"spacing": 10
+        "spacing": 10
 	},
     "idle_inhibitor": {
         "format": "{icon}",
@@ -120,7 +113,34 @@
             "deactivated": ""
         }
     },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "interval": 10,
+        "consume-icons": {
+            "on": " " // Icon shows only when "consume" is on
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
     "hyprland/language": {
-        "format": "{short} {variant}",
+        "format": "{}",
+        "format-en": "🇬🇧",
+        "format-dk": "🇩🇰",
     }
 }
