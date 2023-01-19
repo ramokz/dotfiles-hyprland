@@ -130,8 +130,8 @@ window#waybar > .horizontal {
     box-shadow: none;
     outline: none;
     text-shadow: none;
-	color: #f5c2e7;
-    background-color: #313244;
+	color: @ColorCore;
+    background-color: @ColorBG;
 }
 
 #workspaces button:not(:first-child) {
