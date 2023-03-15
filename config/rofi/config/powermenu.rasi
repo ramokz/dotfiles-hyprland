@@ -17,11 +17,11 @@ window {
     transparency:                   "real";
     background-color:               transparent;
     text-color:                     @FG;
-    border:                  	    2px;
+    border:                  	   2px;
     border-color:                   @BGA;
     border-radius:                  10px;
     width:                          110px;
-    x-offset:                       -1%;
+    x-offset:                       50%;
     y-offset:                       0;
 }
 
