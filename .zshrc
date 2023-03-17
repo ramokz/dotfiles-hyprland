@@ -6,6 +6,11 @@ export MOZ_ENABLE_WAYLAND=1
 [ "$(tty)" = "/dev/tty1" ] && exec Hyprland
 # [ "$(tty)" = "/dev/tty1" ]
 
+
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+
 # Created by newuser for 5.8
 #source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
