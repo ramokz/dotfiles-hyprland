@@ -5,6 +5,8 @@ export MOZ_ENABLE_WAYLAND=1
 # [ "$(tty)" = "/dev/tty1" ] && exec sway
 [ "$(tty)" = "/dev/tty1" ] && exec Hyprland
 # [ "$(tty)" = "/dev/tty1" ]
+export FLYCTL_INSTALL="/home/marcus/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 
 GTK_IM_MODULE=fcitx
