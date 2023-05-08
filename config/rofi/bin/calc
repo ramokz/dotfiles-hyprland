@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+killall rofi || \
+rofi \
+	-show calc \
+	-modi calc \
+  -no-show-match \
+  -no-sort \
+	-theme "$HOME"/.config/rofi/config/runner.rasi
