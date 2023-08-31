@@ -22,7 +22,7 @@ window {
     border-radius:                  10px;
     width:                          110px;
     x-offset:                       50%;
-    y-offset:                       0;
+    y-offset:                       -33%;
 }
 
 prompt {
