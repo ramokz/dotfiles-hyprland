@@ -20,7 +20,7 @@ window#waybar {
 }
 
 window#waybar > .horizontal {
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 .horizontal.modules-center {
