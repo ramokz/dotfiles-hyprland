@@ -13,7 +13,7 @@
         "custom/time",
     ],
     // Modules configuration
-	"wlr/workspaces": {
+	"hyprland/workspaces": {
 		"disable-scroll": true,
         "on-click": "activate",
 		"all-outputs": true,
