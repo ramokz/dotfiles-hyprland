@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "modules-center": [
-        "wlr/workspaces",
+        "hyprland/workspaces",
         "tray",
         "idle_inhibitor",
         "battery",
