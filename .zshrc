@@ -41,3 +41,10 @@ zstyle :compinstall filename '/home/marcus/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+# bun completions
+[ -s "/home/marcus/.bun/_bun" ] && source "/home/marcus/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
