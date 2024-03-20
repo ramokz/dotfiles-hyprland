@@ -1,5 +1,5 @@
 * {
-    BG:    rgba(30, 29, 47, 0.2);
+    BG:    rgba(30, 29, 47, 0.8);
     BGORG: #1E1D2Fff;
     BGA:   #E1164A;
     FG:    #D9E0EEff;
