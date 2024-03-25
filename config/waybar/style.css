@@ -3,8 +3,8 @@
     border-radius: 0px;
     font-family: "JetBrainsMono Nerd Font";
     font-weight: bold;
-    font-size: 10px;
-    min-height: 10px;
+    font-size: 12px;
+    min-height: 20px;
 }
 
 @import "themes/theme.css";
@@ -43,7 +43,7 @@ tooltip {
     padding-right: 12px;
     margin-right: 3px;
     animation: ws_active 20s ease-in-out 1;
-    transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
+    transition: all 0.2s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button:hover {
