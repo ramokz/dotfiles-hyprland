@@ -1,16 +1,20 @@
 {
     "layer": "top",
+    "position": "top",
+    "modules-left": [
+        "battery",
+        "cpu",
+        "memory"
+    ],
     "modules-center": [
         "hyprland/workspaces",
         "tray",
         "idle_inhibitor",
-        "battery",
-        "cpu",
-        "memory",
         "pulseaudio",
+        "clock"
+    ],
+    "modules-right": [
         "hyprland/language",
-        "clock",
-        "custom/time"
     ],
     // Modules configuration
 	"hyprland/workspaces": {
@@ -18,13 +22,14 @@
         "on-click": "activate",
 		"all-outputs": true,
         "format": "{icon}",
+        "active-only": true,
         "persistent_workspaces": {
             "1": [],
             "2": [],
             "3": [],
             "4": [],
 			"5": [],
-            "6": [],
+            "6": []
 		},
         "format-icons": {
             "1":    "一",
@@ -36,21 +41,36 @@
             "7":    "七",
             "8":    "八",
             "9":    "九",
-            "10":   "十",
+            "10":   "十"
         }
     },
     "clock": {
-		"format": "{:%a %d. %B}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
-        "format-calendar": "<span color='#F2F2F2'>{}</span>",
-        "today-format": "<span background='#DE1636' color='#F2F2F2'><b>{}</b></span>",
-        "format-calendar-weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "format-calendar-weeks": "<span color='#99ffdd'><b>W{:%U}</b></span>",
-        "calendar-weeks-pos": "right",
+        "format": "{:%H:%M | %d %b}  ",
+        "tooltip-format": "\n<span size='9pt' font='WenQuanYi Zen Hei Mono'>{calendar}</span>",
+        "calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "left",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
     },
     "custom/time": {
         "restart-interval": 20,
-        "exec": "sh ~/.config/waybar/scripts/get-time.sh",
+        "exec": "sh ~/.config/waybar/scripts/get-time.sh"
 	},
 	"battery": {
 		"states": {
@@ -140,7 +160,7 @@
     },
     "hyprland/language": {
         "format": "{}",
-        "format-en": "🇬🇧",
-        "format-dk": "🇩🇰",
+        "format-en": "English 🇬🇧",
+        "format-da": "Dansk 🇩🇰"
     }
 }
