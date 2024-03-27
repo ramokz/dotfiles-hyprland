@@ -124,11 +124,11 @@ tooltip {
     min-height: 24px;
 }
 
-/* #workspaces,
+#workspaces,
 #taskbar {
-    padding: 0px;
-    margin: 12px 0;
-} */
+    /* padding: 0px; */
+    /* margin: 12px 0; */
+}
 
 #custom-r_end {
     border-radius: 0px 21px 21px 0px;
