@@ -4,7 +4,8 @@
     "modules-left": [
         "battery",
         "cpu",
-        "memory"
+        "memory",
+        "network"
     ],
     "modules-center": [
         "hyprland/workspaces",
@@ -100,11 +101,12 @@
             "format": " {temperatureC}°C",
 	},
 	"network": {
-            "format-wifi": "  {essid}",
-            "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-            "format-linked": "{ifname} (No IP) ",
-            "format-disconnected": "󰤮 Disconnected",
-            "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format": "{bandwidthDownBytes} {bandwidthTotalBytes}",
+        "format-ethernet": " {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "tooltip-format": "{ipaddr}",
+        "format-linked": "󰈁 {ifname} (No IP)",
+        "format-disconnected": "",
+        "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"]
 	},
 	"pulseaudio": {
 		"format": "{icon} {volume}%",
