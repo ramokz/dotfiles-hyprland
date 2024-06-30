@@ -1,6 +1,7 @@
 # Auto Start Sway
 export SDL_VIDEODRIVER=wayland
 export MOZ_ENABLE_WAYLAND=1
+export TERM=xterm-256color
 # export GTK_THEME=Catppuccin-blue:dark
 #[ "$(tty)" = "/dev/tty1" ] && exec sway
  [ "$(tty)" = "/dev/tty1" ] && exec Hyprland
