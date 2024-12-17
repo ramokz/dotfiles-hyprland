@@ -123,8 +123,8 @@
             "car": "",
             "default": ["", "", ""]
         },
-		"on-click": "pavucontrol -t 3",
-		"on-click-right": "pkill pavucontrol"
+		"on-click": "com.saivert.pwvucontrol",
+		"on-click-right": "pkill pwvucontrol"
     },
 	"tray": {
         "spacing": 10
