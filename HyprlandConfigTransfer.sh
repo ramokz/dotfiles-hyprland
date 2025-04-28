@@ -30,6 +30,11 @@ cp /etc/gtk-3.0/settings.ini $dir/etc/gtk-3.0
 # Copy rofi configs
 cp -r ~/.config/rofi/* $dir/config/rofi/
 
+# Copy Zed configs
+cp ~/.config/zed/settings.json $dir/config/zed/
+cp ~/.config/zed/keymap.json $dir/config/zed/
+cp ~/.config/zed/tasks.json $dir/config/zed/
+
 
 ###############
 # Git Add Files
