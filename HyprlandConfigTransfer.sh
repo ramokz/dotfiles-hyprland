@@ -35,6 +35,9 @@ cp ~/.config/zed/settings.json $dir/config/zed/
 cp ~/.config/zed/keymap.json $dir/config/zed/
 cp ~/.config/zed/tasks.json $dir/config/zed/
 
+# Copy Walker congis
+cp ~/.config/walker/* $dir/config/walker/
+
 
 ###############
 # Git Add Files

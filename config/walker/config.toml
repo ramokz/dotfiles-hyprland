@@ -1,0 +1,33 @@
+disable_mouse = true
+
+[providers]
+default = [
+  "desktopapplications",
+  "calc",
+  "websearch",
+] # providers to be queried by default
+empty = ["desktopapplications"] # providers to be queried when query is empty
+ignore_preview = [] # providers that should not show previews
+max_results = 50 # global max results
+
+
+
+[[providers.prefixes]]
+prefix = "="
+provider = "calc"
+
+[[providers.prefixes]]
+prefix = "!"
+provider = "websearch"
+
+[[providers.prefixes]]
+prefix = "$"
+provider = "clipboard"
+
+[[providers.prefixes]]
+prefix = ":"
+provider = "symbols"
+
+[[providers.prefixes]]
+prefix = "/"
+provider = "files"
