@@ -8,7 +8,7 @@ export TERM=xterm-256color
 # [ "$(tty)" = "/dev/tty1" ]
 export FLYCTL_INSTALL="/home/marcus/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
-export EDITOR=vim
+export EDITOR=nvim
 
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
