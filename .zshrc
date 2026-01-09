@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/marcus/.zsh/completions:"* ]]; then export FPATH="/home/marcus/.zsh/completions:$FPATH"; fi
 # Auto Start Sway
 export SDL_VIDEODRIVER=wayland
 export MOZ_ENABLE_WAYLAND=1
@@ -57,3 +59,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+. "/home/marcus/.deno/env"
