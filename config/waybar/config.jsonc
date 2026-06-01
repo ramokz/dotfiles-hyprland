@@ -1,170 +1,163 @@
 {
-    "layer": "top",
-    "position": "top",
-    "modules-left": [
-        "battery",
-        "cpu",
-        "memory",
-        "network"
-    ],
-    "modules-center": [
-        "hyprland/workspaces",
-        "tray",
-        "idle_inhibitor",
-        "pulseaudio",
-        "clock"
-    ],
-    "modules-right": [
-        "hyprland/language",
-    ],
-    // Modules configuration
+	"layer": "top",
+	"position": "top",
+	"modules-left": ["battery", "cpu", "memory", "network"],
+	"modules-center": [
+		"hyprland/workspaces",
+		"tray",
+		"idle_inhibitor",
+		"pulseaudio",
+		"clock",
+	],
+	"modules-right": ["hyprland/language"],
+	// Modules configuration
 	"hyprland/workspaces": {
 		"disable-scroll": true,
-        "on-click": "activate",
+		"on-click": "activate",
 		"all-outputs": true,
-        "format": "{icon}",
-        "active-only": true,
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
+		"format": "{icon}",
+		"active-only": true,
+		"persistent-workspaces": {
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": [],
 			"5": [],
-            "6": []
+			"6": [],
 		},
-        "format-icons": {
-            "1":    "一",
-            "2":    "二",
-            "3":    "三",
-            "4":    "四",
-            "5":    "五",
-            "6":    "六",
-            "7":    "七",
-            "8":    "八",
-            "9":    "九",
-            "10":   "十"
-        }
-    },
-    "clock": {
-        "format": " {:%H:%M |  %a %e %b}",
-        "tooltip-format": "\n<span size='8pt'>{calendar}</span>",
-        // "locale": "en_GB.UTF-8",
-        "timezone": "Europe/Copenhagen",
-        "calendar": {
-            "mode"          : "month",
-            "mode-mon-col"  : 3,
-            "weeks-pos"     : "right",
-            "on-scroll"     : 1,
-            "format": {
-                "months":     "<span color='#ffead3'><b>{}</b></span>",
-                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                "weeks":      "<span color='#99ffdd'><b>{}</b></span>",
-                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-            }
-        },
-        "actions":  {
-            "on-click-right": "mode",
-            "on-click-forward": "tz_up",
-            "on-click-backward": "tz_down",
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down"
-        }
-    },
-    "custom/time": {
-        "restart-interval": 20,
-        "exec": "sh ~/.config/waybar/scripts/get-time.sh"
+		"format-icons": {
+			"1": "一",
+			"2": "二",
+			"3": "三",
+			"4": "四",
+			"5": "五",
+			"6": "六",
+			"7": "七",
+			"8": "八",
+			"9": "九",
+			"10": "十",
+		},
+	},
+	"clock": {
+		"format": " {:%H:%M |  %a %e %b}",
+		"tooltip-format": "\n<span size='8pt'>{calendar}</span>",
+		// "locale": "en_GB.UTF-8",
+		"timezone": "Europe/Copenhagen",
+		"calendar": {
+			"mode": "month",
+			"mode-mon-col": 3,
+			"weeks-pos": "right",
+			"on-scroll": 1,
+			"format": {
+				"months": "<span color='#ffead3'><b>{}</b></span>",
+				"days": "<span color='#ecc6d9'><b>{}</b></span>",
+				"weeks": "<span color='#99ffdd'><b>{}</b></span>",
+				"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+				"today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+			},
+		},
+		"actions": {
+			"on-click-right": "mode",
+			"on-click-forward": "tz_up",
+			"on-click-backward": "tz_down",
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down",
+		},
+	},
+	"custom/time": {
+		"restart-interval": 20,
+		"exec": "sh ~/.config/waybar/scripts/get-time.sh",
 	},
 	"battery": {
 		"states": {
 			"warning": 30,
-			"critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": "{icon} {capacity}%",
-        "format-plugged": "{icon} {capacity}%",
-        "format-alt": "{time} {icon}",
-        "format-full": "{icon} {capacity}%",
-        "format-icons": ["", "", ""]
+			"critical": 15,
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": "{icon} {capacity}%",
+		"format-plugged": "{icon} {capacity}%",
+		"format-alt": "{time} {icon}",
+		"format-full": "{icon} {capacity}%",
+		"format-icons": ["", "", ""],
 	},
-	"cpu": { 
-        "format": " {usage}%",
-        "tooltip": false
-    },
+	"cpu": {
+		"format": " {usage}%",
+		"tooltip": false,
+	},
 	"memory": {
-        "format": " {}%"
+		"format": " {}%",
 	},
 	"temperature": {
-	        // "thermal-zone": 2,
+		// "thermal-zone": 2,
 		"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-            "critical-threshold": 80,
-	        // "format-critical": "{temperatureC}°C {icon}",
-            "format": " {temperatureC}°C",
+		"critical-threshold": 80,
+		// "format-critical": "{temperatureC}°C {icon}",
+		"format": " {temperatureC}°C",
 	},
 	"network": {
-        "format": "{bandwidthDownBytes} {bandwidthTotalBytes}",
-        "format-ethernet": " {bandwidthUpBytes}  {bandwidthDownBytes}",
-        "tooltip-format": "{ipaddr}",
-        "format-linked": "󰈁 {ifname} (No IP)",
-        "format-disconnected": "",
-        "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"]
+		"format": "{bandwidthDownBytes} {bandwidthTotalBytes}",
+		"format-ethernet": " {bandwidthUpBytes}  {bandwidthDownBytes}",
+		"tooltip-format": "{ipaddr}",
+		"format-linked": "󰈁 {ifname} (No IP)",
+		"format-disconnected": "",
+		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
 	},
 	"pulseaudio": {
 		"format": "{icon} {volume}%",
 		"format-bluetooth": "{volume}% {icon} {format_source}",
 		"format-muted": "  Muted",
 		"format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
+		"format-source-muted": "",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", "", ""],
+		},
 		"on-click": "com.saivert.pwvucontrol",
-		"on-click-right": "pkill pwvucontrol"
-    },
-	"tray": {
-        "spacing": 10
+		"on-click-right": "pkill pwvucontrol",
 	},
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "interval": 10,
-        "consume-icons": {
-            "on": " " // Icon shows only when "consume" is on
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
-    "hyprland/language": {
-        "format": "{}",
-        "format-en": "English 🇬🇧",
-        "format-da": "Dansk 🇩🇰"
-    }
+	"tray": {
+		"spacing": 10,
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": "",
+		},
+	},
+	"mpd": {
+		"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+		"format-disconnected": "Disconnected ",
+		"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+		"interval": 10,
+		"consume-icons": {
+			"on": " ", // Icon shows only when "consume" is on
+		},
+		"random-icons": {
+			"off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+			"on": " ",
+		},
+		"repeat-icons": {
+			"on": " ",
+		},
+		"single-icons": {
+			"on": "1 ",
+		},
+		"state-icons": {
+			"paused": "",
+			"playing": "",
+		},
+		"tooltip-format": "MPD (connected)",
+		"tooltip-format-disconnected": "MPD (disconnected)",
+	},
+	"hyprland/language": {
+		"format": "{}",
+		"format-en": "English 🇬🇧",
+		"format-da": "Dansk 🇩🇰",
+	},
 }
