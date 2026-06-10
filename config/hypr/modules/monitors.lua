@@ -1,18 +1,18 @@
-local asusmonitor = "ASUSTek COMPUTER INC PA32UCDMR TCLMSB002800"
-local dellMonitor = "Dell Inc. DELL U2723QE C9D9FH3"
+local asusmonitor = "desc:ASUSTek COMPUTER INC PA32UCDMR TCLMSB002800"
+local dellMonitor = "desc:Dell Inc. DELL U2723QE C9D9FH3"
 
 
 hl.monitor({
-	description = asusmonitor,
+	output = asusmonitor,
 	mode = "3840x2160@240",
 	position = "0x0",
 	scale = 1,
-	bitdpth = 10,
+	bitdepth = 10,
 	cm = "hdr"
 })
 
 hl.monitor({
-	description = dellMonitor,
+	output = dellMonitor,
 	mode = "3840x2160@60",
 	position = "3840x0",
 	scale = 1,
@@ -27,7 +27,7 @@ hl.workspace_rule({
 
 hl.workspace_rule({
 	workspace = "6",
-	monitor = "desc: " + dellMonitor,
+	monitor = dellMonitor
 })
 
 -- # See https://wiki.hyprland.org/Configuring/Monitors/

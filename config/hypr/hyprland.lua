@@ -29,30 +29,32 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
 hl.env("MOZ_ENABLE_WAYLAND", "1")
-hl.env("SDL_VIDEODRIVER='wayland,x11,windows'")
-hl.env("HYPRCURSOR_THEME='MyCursor'")
-hl.env("HYPRCURSOR_SIZE='20'")
-hl.env("XCURSOR_SIZE='20'")
+hl.env("SDL_VIDEODRIVER", "wayland,x11,windows")
+hl.env("HYPRCURSOR_THEME", "MyCursor'")
+hl.env("HYPRCURSOR_SIZE@", "20")
+hl.env("XCURSOR_SIZE", "20")
 
 
--- hl.config({
---     input = {
--- 	    kb_layout = "gb,dk",
--- 	    kb_options = "grp:ctrls_toggle", "fnmode:inverse",
--- 	    kb_variant =,
--- 	    kb_model =
--- 	    kb_rules =
+hl.config({
+	input = {
+		kb_layout = "gb,dk",
+		kb_options = "grp:ctrls_toggle",
+		"fnmode:inverse",
+		-- kb_variant =,
+		-- kb_model =
+		-- kb_rules =
 
--- 	    follow_mouse = 1
+		follow_mouse = 1
 
--- 	    touchpad {
--- 	        natural_scroll = no
--- 	    }
+		-- touchpad {
+		--     natural_scroll = no
+		-- }
 
--- 	    sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
---     },
--- })
+		-- sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+	},
+})
 
 
 require("modules.variables")
+require("modules.keybindings")
 require("modules.monitors")

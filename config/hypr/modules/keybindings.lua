@@ -1,59 +1,63 @@
-require("variables")
+require("modules.variables")
 
 local scrPath = "~/.config/hyprdots/scripts"
 
 --------------------
 ---- Main Utils ----
 --------------------
-hl.bind(mainMod + " + RETURN", 							hl.dsp.exec_cmd(term)
-hl.bind(mainMod + " + SHIFT + Q",					 	hl.dsp.exec_cmd("killactive")
-hl.bind(mainMod + " + SHIFT + M",					 	hl.dsp.exec_cmd("exit")
-hl.bind(mainMod + " + N", 								hl.dsp.exec_cmd(files)
-hl.bind(mainMod + " + Y", 								hl.dsp.exec_cmd(term + " -e yazi")
-hl.bind(mainMod + " + F", 								hl.dsp.exec_cmd("fullscreen")
-hl.bind(mainMod + " + W", 								hl.dsp.exec_cmd("togglefloating")
-hl.bind(mainMod + " + P", 								hl.dsp.exec_cmd("pseudo")
-hl.bind(mainMod + " + J", 								hl.dsp.exec_cmd("togglesplit")
-hl.bind(mainMod + " + CONTROL ESCAPE", 					hl.dsp.exec_cmd("kitty -e btop # pkill -x btop || $scrPath/sysmonlaunch.sh")
-hl.bind(mainMod + " + CONTROL SHIFT ESCAPE", 			hl.dsp.exec_cmd("killall waybar || waybar")
-hl.bind(mainMod + " + L",					 			hl.dsp.exec_cmd("hyprlock")
+hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(term))
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close())
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("exit"))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(files))
+hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(term .. " -e yazi"))
+hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("fullscreen"))
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("togglefloating"))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("pseudo"))
+hl.bind(mainMod .. " + J", hl.dsp.exec_cmd("togglesplit"))
+hl.bind(mainMod .. " + CONTROL + ESCAPE", hl.dsp.exec_cmd("kitty -e btop # pkill -x btop || $scrPath/sysmonlaunch.sh"))
+hl.bind(mainMod .. " + CONTROL + SHIFT + ESCAPE", hl.dsp.exec_cmd("killall waybar || waybar"))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
 ------------------
 ---- Launcher ----
 ------------------
-hl.bind(mainMod + " + D",					 			hl.dsp.exec_cmd("walker")
-hl.bind(mainMod + " + K",					 			hl.dsp.exec_cmd("walker --modules files")
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("walker"))
+hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("walker --modules files"))
 
 --------------
 ---- Apps ----
 --------------
-hl.bind(mainMod + " + Z",								hl.dsp.exec_cmd(mainBrowser)
-hl.bind(mainMod + " + SHIFT + Z", 						hl.dsp.exec_cmd(devBrowser)
-hl.bind(mainMod + " + E",					 			hl.dsp.exec_cmd(editor)
-hl.bind(mainMod + " + SHIFT + P",			 			hl.dsp.exec_cmd(password)
-hl.bind(mainMod + " + G",			 					hl.dsp.exec_cmd("godot")
-hl.bind(mainMod + " + M",			 					hl.dsp.exec_cmd(mail)
+hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(mainBrowser))
+hl.bind(mainMod .. " + SHIFT + Z", hl.dsp.exec_cmd(devBrowser))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(editor))
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(password))
+hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("godot"))
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(mail))
 
 ----------------------
 ---- Color Picker ----
 ----------------------
-hl.bind(mainMod + " + SHIFT + C",			 			hl.dsp.exec_cmd("hyprpicker -a")
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"))
 
 -- Volume
-hl.bind(XF86AudioRaiseVolume,			 				hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ +5%")
-hl.bind(XF86AudioLowerVolume,			 				hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -5%")
-hl.bind(XF86AudioMute,			 						hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle")
-hl.bind(XF86AudioPlay,			 						hl.dsp.exec_cmd("playerctl play-pause")
-hl.bind(XF86AudioPause,			 						hl.dsp.exec_cmd("playerctl play-pause")
-hl.bind(XF86AudioNext,			 						hl.dsp.exec_cmd("playerctl next")
-hl.bind(XF86AudioPrev,			 						hl.dsp.exec_cmd("playerctl previous")
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ +5%"))
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -5%"))
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle"))
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"))
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
 
 
 --------------
 ---- Zoom ----
 --------------
-hl.bind(mainMod + " + mouse_down",			 			hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')")
-hl.bind(mainMod + " + mouse_up",			 			hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')")
+hl.bind(mainMod .. " + mouse_down",
+	hl.dsp.exec_cmd(
+		"hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')"))
+hl.bind(mainMod .. " + mouse_up",
+	hl.dsp.exec_cmd(
+		"hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')"))
 
 -- bind = $mainMod SHIFT, mouse_up, exec, hyprctl -q keyword cursor:zoom_factor 1
 -- bind = $mainMod SHIFT, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor 1
@@ -87,9 +91,9 @@ hl.bind(mainMod + " + mouse_up",			 			hl.dsp.exec_cmd("hyprctl -q keyword curso
 -- bind = $mainMod, 0, workspace, 10
 
 for i = 1, 10 do
-    local key = i % 10 -- 10 maps to key 0
-    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
-    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+	local key = i % 10 -- 10 maps to key 0
+	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- # Move active window to a workspace with mainMod + SHIFT + [0-9]
