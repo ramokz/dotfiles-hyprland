@@ -1,27 +1,30 @@
 local asusmonitor = "desc:ASUSTek COMPUTER INC PA32UCDMR TCLMSB002800"
 local dellMonitor = "desc:Dell Inc. DELL U2723QE C9D9FH3"
 
+local scale = 1.2
 
 hl.monitor({
 	output = asusmonitor,
 	mode = "3840x2160@240",
-	position = "0x0",
-	scale = 1,
+	scale = scale,
 	bitdepth = 10,
-	cm = "hdr"
+	cm = "hdr",
+	sdrbrightness = 1.3,
+	sdrsaturation = 1.2,
 })
 
 hl.monitor({
 	output = dellMonitor,
 	mode = "3840x2160@60",
-	position = "3840x0",
-	scale = 1,
+	position = "auto-center-right",
+	scale = scale,
 	transform = 1
 })
 
+
 hl.workspace_rule({
-	workspace = "1", -- r[1-5]
-	monitor = dellMonitor,
+	workspace = "r[1-9]",
+	monitor = asusmonitor,
 	default = true
 })
 

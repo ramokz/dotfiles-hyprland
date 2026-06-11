@@ -21,7 +21,6 @@ end)
 
 -- █▀▀ █▄░█ █░█
 -- ██▄ █░▀█ ▀▄▀
--- Some default env vars.
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
@@ -36,6 +35,17 @@ hl.env("XCURSOR_SIZE", "20")
 
 
 hl.config({
+	general = {
+		gaps_in = 2,
+		gaps_out = 0,
+		border_size = 2,
+		col = {
+			active_border = { colors = { "rgb(F47C39)", "rgb(B1572B)" }, angle = 45 },
+			inactive_border = "rgba(595959aa)",
+		},
+
+		layout = "dwindle"
+	},
 	input = {
 		kb_layout = "gb,dk",
 		kb_options = "grp:ctrls_toggle",
@@ -52,9 +62,33 @@ hl.config({
 
 		-- sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
 	},
+
+	decoration = {
+		rounding         = 6,
+		rounding_power   = 2,
+
+		-- Change transparency of focused and unfocused windows
+		active_opacity   = 1.0,
+		inactive_opacity = 1.0,
+
+		shadow           = {
+			enabled      = true,
+			range        = 2,
+			render_power = 3,
+			color        = 0x1a1a1aee,
+		},
+		blur             = {
+			enabled  = true,
+			size     = 3,
+			passes   = 1,
+			vibrancy = 0.1696,
+		},
+	},
 })
 
 
 require("modules.variables")
 require("modules.keybindings")
 require("modules.monitors")
+require("modules.animations")
+require("modules.windowrules")
