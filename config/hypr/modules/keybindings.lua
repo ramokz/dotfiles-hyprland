@@ -7,7 +7,7 @@ local scrPath = "~/.config/hyprdots/scripts"
 --------------------
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(term))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close())
-hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("exit"))
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exit())
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(files))
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(term .. " -e yazi"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
@@ -18,11 +18,13 @@ hl.bind(mainMod .. " + CONTROL + ESCAPE", hl.dsp.exec_cmd("kitty -e btop"))
 hl.bind(mainMod .. " + CONTROL + SHIFT + ESCAPE", hl.dsp.exec_cmd("killall waybar || waybar"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
+
 ------------------
 ---- Launcher ----
 ------------------
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("walker"))
 hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("walker --modules files"))
+
 
 --------------
 ---- Apps ----
@@ -34,12 +36,16 @@ hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(password))
 hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("godot"))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(mail))
 
+
 ----------------------
 ---- Color Picker ----
 ----------------------
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"))
 
--- Volume
+
+----------------
+---- Volume ----
+----------------
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ +5%"))
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -5%"))
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle"))
@@ -52,18 +58,55 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
 --------------
 ---- Zoom ----
 --------------
-hl.bind(mainMod .. " + mouse_down",
-	hl.dsp.exec_cmd(
-		"hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')"))
-hl.bind(mainMod .. " + mouse_up",
-	hl.dsp.exec_cmd(
-		"hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')"))
+
+local function zoom(offset)
+	local zoomValue = hl.get_config("cursor.zoom_factor")
+
+	zoomValue = zoomValue + offset
+
+	hl.config({ cursor = { zoom_factor = zoomValue } })
+end
+
+hl.bind(mainMod .. " + mouse_down", function()
+	zoom(0.1)
+end)
+hl.bind(mainMod .. " + mouse_up", function()
+	zoom(-0.1)
+end)
 
 
 hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor 1"))
 hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor 1"))
 -- bind = $mainMod SHIFT, mouse_up, exec, hyprctl -q keyword cursor:zoom_factor 1
 -- bind = $mainMod SHIFT, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor 1
+
+
+local MAX_ZOOM = 3
+local MIN_ZOOM = 1
+local ZOOM_TOGGLE_FACTOR = 1.5
+
+---@param offset number
+---@return nil
+local function zoom(offset)
+	local current = hl.get_config("cursor.zoom_factor")
+	if offset ~= nil then
+		current = current + offset
+	elseif current ~= MIN_ZOOM then
+		current = MIN_ZOOM
+	else
+		current = ZOOM_TOGGLE_FACTOR
+	end
+	current = math.max(MIN_ZOOM, math.min(MAX_ZOOM, current))
+	hl.config({ cursor = { zoom_factor = current } })
+end
+
+hl.bind("SUPER + Z", zoom)
+hl.bind("SUPER + KP_ADD", function()
+	zoom(0.5)
+end)
+hl.bind("SUPER + minus", function()
+	zoom(-0.5)
+end)
 
 
 hl.bind(mainMod .. " + SHIFT + CTRL + mouse_up", hl.dsp.exec_cmd(" ~/.config/hypr/zoom_toggle.sh"))
@@ -96,8 +139,8 @@ end
 --------------------------------------------
 ---- Scroll through existing workspaces ----
 --------------------------------------------
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "+1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "-1" }))
+-- hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "+1" }))
+-- hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "-1" }))
 
 -----------------------------------------------------------------
 ---- Move/resize windows with mainMod + LMB/RMB and dragging ----

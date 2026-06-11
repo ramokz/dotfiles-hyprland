@@ -1,7 +1,6 @@
 ---------------------------
------ Animation Curves ----
+---- Animation Curves ----
 ---------------------------
-
 hl.curve("pan", {
 	type = "bezier",
 	points = {
@@ -28,46 +27,46 @@ hl.curve("winOut", {
 
 
 ---------------------
------ Animations ----
+---- Animations ----
 ---------------------
 hl.animation({
 	leaf = "windowsIn",
 	enabled = true,
-	speed = 1,
+	speed = 2,
 	bezier = "winIn"
 })
 
 hl.animation({
 	leaf = "windowsOut",
 	enabled = true,
-	speed = 1,
+	speed = 3,
 	bezier = "winIn"
 })
 
 hl.animation({
 	leaf = "windowsMove",
 	enabled = true,
-	speed = 1,
+	speed = 1.2,
 	bezier = "pan"
 })
 
 hl.animation({
 	leaf = "border",
 	enabled = true,
-	speed = 1,
+	speed = 3,
 	bezier = "default"
 })
 
 hl.animation({
 	leaf = "fade",
 	enabled = true,
-	speed = 1,
+	speed = 3,
 	bezier = "default"
 })
 
 hl.animation({
 	leaf = "workspaces",
 	enabled = true,
-	speed = 4,
+	speed = 2.8,
 	bezier = "default"
 })
