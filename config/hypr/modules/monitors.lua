@@ -32,10 +32,10 @@ hl.workspace_rule({
 	default = true
 })
 
--- hl.workspace_rule({
--- 	workspace = "r[2-5]",
--- 	monitor = asusmonitor,
--- })
+hl.workspace_rule({
+	workspace = "r[2-5]",
+	monitor = asusmonitor,
+})
 
 hl.workspace_rule({
 	workspace = "6",
