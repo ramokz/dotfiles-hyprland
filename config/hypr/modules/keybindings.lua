@@ -14,8 +14,8 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", actio
 hl.bind(mainMod .. " + W", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
-hl.bind(mainMod .. " + CONTROL + ESCAPE", hl.dsp.exec_cmd("kitty -e btop"))
-hl.bind(mainMod .. " + CONTROL + SHIFT + ESCAPE", hl.dsp.exec_cmd("killall waybar || waybar"))
+hl.bind("CONTROL + ESCAPE", hl.dsp.exec_cmd("kitty -e btop"))
+hl.bind("CONTROL + SHIFT + ESCAPE", hl.dsp.exec_cmd("killall waybar || waybar"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
 
@@ -140,4 +140,55 @@ hl.bind(mainMod .. " + C", hl.dsp.window.center())
 
 
 -- bind = $mainMod, F1, exec, ~/.config/hypr/gamemode.sh
-hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd("~/.config/hypr/gamemode.sh"))
+-- hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd("~/.config/hypr/gamemode.sh"))
+
+---------------------
+---- HDR Enabled ----
+---------------------
+hl.bind(mainMod .. " + F2", function()
+	--	hl.monitor({
+	--		output = asusmonitor,
+end)
+
+-------------------
+---- Game Mode ----
+-------------------
+hl.bind(mainMod .. " + F1", function()
+	local game_mode = (hl.get_config("animations.enabled") == false)
+
+	if game_mode then
+		hl.exec_cmd("hyprctl reload")
+		return
+	end
+
+	hl.config({
+		general = {
+			gaps_in = 0,
+			gaps_out = 0, -- Disable gaps
+			border_size = 0,
+		},
+
+		animations = {
+			enabled = false, -- Disable animations
+		},
+
+		-- Disable blur, shadow and window rounding
+		decoration = {
+			shadow = { enabled = false },
+			blur = { enabled = false },
+			rounding = 0,
+		},
+
+	})
+
+	hl.monitor({ output = dellMonitor, disabled = true })
+end)
+
+---------------------
+---- Screen Shot ----
+---------------------
+---- Save to ----
+hl.bind("CTRL + SHIFT + 4", hl.dsp.exec_cmd('grimblast save area'))
+
+---- Save to Clipboard ----
+hl.bind("CTRL + SHIFT + ALT + 4", hl.dsp.exec_cmd('grimblast copy area'))
