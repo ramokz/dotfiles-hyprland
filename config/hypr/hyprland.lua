@@ -30,8 +30,9 @@ hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
 hl.env("MOZ_ENABLE_WAYLAND", "1")
 hl.env("SDL_VIDEODRIVER", "wayland,x11,windows")
 hl.env("HYPRCURSOR_THEME", "MyCursor'")
-hl.env("HYPRCURSOR_SIZE@", "20")
-hl.env("XCURSOR_SIZE", "20")
+hl.env("HYPRCURSOR_SIZE", "20")
+-- hl.env("XCURSOR_SIZE", "20")
+hl.env("GDK_SCALE", "1.333")
 
 
 hl.config({
@@ -69,7 +70,7 @@ hl.config({
 
 		-- Change transparency of focused and unfocused windows
 		active_opacity   = 1.0,
-		inactive_opacity = 1.0,
+		inactive_opacity = 0.85,
 
 		shadow           = {
 			enabled      = true,
@@ -84,6 +85,14 @@ hl.config({
 			vibrancy = 0.1696,
 		},
 	},
+
+	xwayland = {
+		force_zero_scaling = true
+	},
+
+	binds = {
+		scroll_event_delay = 1
+	}
 })
 
 

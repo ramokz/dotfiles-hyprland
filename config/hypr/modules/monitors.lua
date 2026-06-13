@@ -8,7 +8,6 @@ hl.monitor({
 	output = asusmonitor,
 	mode = "3840x2160@240",
 	scale = 1.333,
-	2,
 	bitdepth = 10,
 	cm = "hdr",
 	sdrbrightness = 1.3,
@@ -32,10 +31,12 @@ hl.workspace_rule({
 	default = true
 })
 
-hl.workspace_rule({
-	workspace = "r[2-5]",
-	monitor = asusmonitor,
-})
+for i = 2, 5 do
+	hl.workspace_rule({
+		workspace = i,
+		monitor = asusmonitor,
+	})
+end
 
 hl.workspace_rule({
 	workspace = "6",

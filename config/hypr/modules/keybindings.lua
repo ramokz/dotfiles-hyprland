@@ -58,7 +58,7 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
 --------------
 ---- Zoom ----
 --------------
-local MAX_ZOOM = 3
+local MAX_ZOOM = 5
 local MIN_ZOOM = 1
 local ZOOM_TOGGLE_FACTOR = 1.5
 
@@ -77,11 +77,11 @@ local function zoom(offset)
 	hl.config({ cursor = { zoom_factor = current } })
 end
 
-hl.bind("SUPER + Z", zoom)
-hl.bind(mainMod .. " + mouse_down", function()
+-- hl.bind("SUPER + Z", zoom)
+hl.bind(mainMod .. " + SHIFT + mouse_down", function()
 	zoom(0.5)
 end)
-hl.bind(mainMod .. " + mouse_up", function()
+hl.bind(mainMod .. " + SHIFT + mouse_up", function()
 	zoom(-0.5)
 end)
 
@@ -89,6 +89,10 @@ hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.exec_cmd("hyprctl -q keyword cu
 hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor 1"))
 -- bind = $mainMod SHIFT, mouse_up, exec, hyprctl -q keyword cursor:zoom_factor 1
 -- bind = $mainMod SHIFT, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor 1
+--
+hl.bind(mainMod .. " + SHIFT + CTRL + mouse_up", function()
+	zoom(MAX_ZOOM)
+end)
 
 
 hl.bind(mainMod .. " + SHIFT + CTRL + mouse_up", hl.dsp.exec_cmd(" ~/.config/hypr/zoom_toggle.sh"))
