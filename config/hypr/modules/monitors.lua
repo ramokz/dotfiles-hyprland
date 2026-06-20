@@ -7,6 +7,7 @@ local dellMonitor = "desc:Dell Inc. DELL U2723QE C9D9FH3"
 hl.monitor({
 	output = asusmonitor,
 	mode = "highres",
+	vrr = 3,
 	scale = 1.333,
 	bitdepth = 10,
 	cm = "hdr",
