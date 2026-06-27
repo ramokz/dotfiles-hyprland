@@ -11,8 +11,8 @@ hl.monitor({
 	scale = 1.333,
 	bitdepth = 10,
 	cm = "hdr",
-	sdrbrightness = 1.3,
-	sdrsaturation = 1.2,
+	sdrbrightness = 1.8,
+	sdrsaturation = 1.3,
 })
 
 hl.monitor({

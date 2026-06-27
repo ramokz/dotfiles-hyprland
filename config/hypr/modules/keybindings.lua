@@ -35,6 +35,7 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(editor))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(password))
 hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("godot"))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(mail))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(tasks))
 
 
 ----------------------

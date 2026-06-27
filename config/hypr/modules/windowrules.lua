@@ -1,4 +1,5 @@
 local opacity = 0.95
+local floatWindowSize = { 1200, 800 }
 
 hl.window_rule({
 	name = "term",
@@ -138,8 +139,18 @@ hl.window_rule({
 	float = true
 })
 
+hl.window_rule({
+	name = "planify",
+	match = {
+		class = "io.github.alainm23.planify"
+	},
+	size = floatWindowSize,
+	float = true,
+	center = true
+})
 
-local opacityClasses = { mainBrowser, "discord", "Webcord", "obsidian", "Brave-browser" }
+
+local opacityClasses = { mainBrowser, "discord", "Webcord", "obsidian", "Brave-browser", "io.github.alainm23.planify" }
 
 for i = 1, #opacityClasses do
 	hl.window_rule({
