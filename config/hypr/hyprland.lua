@@ -9,7 +9,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("solaar --window=hide")
 	hl.exec_cmd("systemctl --user start elephant.service")
 	hl.exec_cmd("walker --gapplication-service")
-	hl.exec_cmd("systemctl enable --now nym-vpnd.service")
 
 	hl.exec_cmd("dbus-update-activation-environment --systemd DISPLAY XAUTHORITY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 	hl.exec_cmd("~/dotfiles-hyprland/HyprlandConfigTransfer.sh")
