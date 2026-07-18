@@ -36,7 +36,7 @@ hl.env("MOZ_ENABLE_WAYLAND", "1")
 hl.env("SDL_VIDEODRIVER", "wayland,x11,windows")
 hl.env("HYPRCURSOR_THEME", "MyCursor'")
 hl.env("HYPRCURSOR_SIZE", "20")
-hl.env("XCURSOR_SIZE", "4")
+hl.env("XCURSOR_SIZE", "20")
 hl.env("GDK_SCALE", "1")
 
 
